@@ -1,6 +1,6 @@
-# JavaScript firestore
+# Realtime Database Firebase
 
-> In this project basically simple operation firestore cloud messaging.
+> In this project basically javascript simple operation firestore cloud realtime messaging.
 
 - Below the simple example for `get` & `set` data  
 
