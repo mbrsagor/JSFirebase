@@ -13,11 +13,15 @@
             <div class="card">
               <div class="card-body">
                 <div id="chat">     
-                  <ul id="messages"></ul>
+                  <div style="display: flex; justify-content: space-between;">
+                    <ul id="messages"></ul>
+                    <ul id="customer_messages"></ul>
+                  </div>
                   <form id="send-message">
                     <div class="form-group mb-2">
-                      <label for="message">Chat message</label>
-                      <input id="message" class="form-control" placeholder="Enter your message" type="text" />
+                      <label for="message"></label>
+                      <input id="message" class="form-control" placeholder="Enter your message" type="text" required/>
+                      <input class="d-none" id="customermsg" type="text"/>
                     </div>
                     <button class="btn btn-success btn-sm" id="chat-btn" id="chat-btn" type="submit">Send</button>
                   </form>      

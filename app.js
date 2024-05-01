@@ -15,20 +15,23 @@ document.getElementById("send-message").addEventListener("submit", postChat);
 function postChat(e) {
   e.preventDefault();
   const chatTxt = document.getElementById("message");
+  const customerTxt = document.getElementById("customermsg");
   const message = chatTxt.value;
-  database.ref('data').push({
-    message: message
+  const customermsg = customerTxt.value;
+  database.ref('chat').push({
+    message: message,
+    customermsg: customermsg
   });
   // clear field after send message
   chatTxt.value = "";
 }
 
-// Get messages in template
-const fetchChat = database.ref("data");
+// Get/Fetch messages in template
+const fetchChat = database.ref("chat");
 fetchChat.on("child_added", function (snapshot) {
   const messages = snapshot.val();
-  // console.log(messages.message)
-  const msg = "<li>" + messages.message + "</li>";
+  const msg = "<li> Admin: " + messages.message + "</li>";
+  const customermsg = "<li> Customer: " + messages.customermsg + "</li>";
   document.getElementById("messages").innerHTML += msg;
+  document.getElementById("customer_messages").innerHTML += customermsg;
 });
-
